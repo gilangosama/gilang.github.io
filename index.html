@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>:)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&family=Raleway:wght@500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        header {
+          @apply pt-5;
+          background: linear-gradient(180deg, #ffffff 0%, #eaf4ff 46.08%, #ffffff 100%);
+        }
+        nav a {
+          @apply hover:underline hover:text-primary font-nav;
+        }
+        .button-primary {
+          @apply bg-primary text-white px-5 py-2 rounded-full;
+        }
+        .gradient {
+          background: -webkit-linear-gradient(left, #e18700 0%, #ff32ad 50%, #0ec5d7 100%);
+          color: transparent;
+          background-clip: text;
+        }
+        .img-sponsor {
+          height: 50px;
+          width: auto;
+          margin: 0px 25%;
+        }
+        .item-services {
+          border: none;
+          background: #ffffff;
+        }
+        .item {
+          height: 290px;
+          width: 400px;
+        }
+        .frame{
+          margin:20%;
+        }
+        
+        .has-child:hover .submenu {
+          @apply visible opacity-100;
+        }
+
+        .has-child {
+          @apply relative cursor-pointer;
+        }
+        .has-child > span.caret {
+          @apply invert absolute h-[26px] w-[12px] -right-3 top-1/2 transform -translate-y-1/2;
+          content: url('data:image/svg+xml;charset=UTF-8, <svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.666992 0.666748L4.33366 4.66675L8.00033 0.666748" stroke="white"/></svg>');
+        }
+        .submenu {
+          @apply absolute m-0 py-1 bg-primary invisible opacity-0 transition-all ease-in-out;
+        }
+        .submenu a{
+          @apply text-white min-w-[135px] w-full block py-1 px-4 hover:text-white;
+        }
+        @media screen and (max-width: 1024px) {
+        nav {
+          left: -100%;
+          transition: all 0.3s ease-in-out;
+        }
+        nav > ul > li {
+          @apply w-full p-0;
+        }
+        .has-child {
+          @apply overflow-hidden;
+        }
+        .has-child > span.caret {
+          @apply invert-0 top-4;
+        }
+        .has-child.active .submenu {
+          @apply visible opacity-100 max-h-[1000px];
+        }
+        nav .submenu {
+          @apply visible opacity-100 relative w-full max-h-0;
+        }
+        nav.active {
+          left: 0;
+        }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header>
+      <div id="navigation" class="container flex gap-10 justify-between mx-auto items-center xl:px-0 ">
+        <div class="left-side flex gap-10 items-center">
+          <img src="logo.svg" alt="logo" />
+          <nav class="fixed w-full h-full top-0 p-10 lg:relative bg-primary lg:bg-transparent">
+            <ul class="flex items-center gap-5 lg:flex-row gap-y-5 gap-x-5 items-center">
+              <li class="active"><a href="#">Home</a></li>
+              <li class="has-child"><a href="#">About</a>
+                <span class="caret"></span>
+                <ul class="submenu">
+                  <li><a href="#">Visi</a></li>
+                  <li><a href="#">Misi</a></li>
+                  <li><a href="#">Profil</a></li>
+                  <li><a href="#">Our Team</a></li>
+                </ul></li>
+              <li class="has-child"><a href="#">Services</a></li>
+              <li class="has-child"><a href="#">Blog</a></li>
+              <li class="has-child"><a href="#">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="flex gap-10">
+          <button>
+            <img src="search.svg" alt="search" id="myBtn-search"/>
+          </button>
+          <button class="btn button-primary" id="myBtn">Get Started</button>
+        </div>
+      </div>
+      <button class="mobile-btn fixed right-20 top-7 lg:static lg:hidden">
+        <svg class="bar" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 17H19M5 12H19M5 7H19" stroke="black" stroke-width="2.01562" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+<!-- popup -->
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>hai</h2>
+          </div>
+          <div class="modal-body">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias nostrum ratione fugiat repellat et nisi neque facere reiciendis, quod nam optio placeat, tempora iusto accusamus provident ut architecto cum veniam!</p>
+          </div>
+        </div>
+      </div>
+
+      <section class="hero md:max-w-[700px] mx-auto relative">
+        <h1 class="font-base text-heading-1 font-bold text-center mt-10 leading-tight max-sm:text-2xl">It's Fun To Build a Website With <span class="gradient">The Mangcoding Team</span></h1>
+        <p class="text-center text-[#636363] my-3 max-sm:text-sm">The Mangcoding team will help build a website for your company with quality and guaranteed services, with custom templates you can create a website as you like.</p>
+        <div class="mb-5 action mx-auto flex justify-center items-center gap-5 max-sm:text-sm">
+          <a href="#" class="button-primary">Get Started</a>
+          <a href="#" class="underline flex items-center gap-2">
+            Explore Our Blog
+            <img src="./arrow-right.svg" alt="" />
+          </a>
+        </div>
+        <img src="./thumbnail.png" alt="" />
+      </section>
+    </header>
+
+    <!-- Sponsor -->
+    <div class="sponsor mt-10 font-base items-stretch py-14 max-sm:mt-5">
+      <div class="container mx-auto">
+      <h2 class="text-center text-[#636363] my-3 leading-tight max-sm:text-sm">Brands that trust us</h2>
+      <div class="ml-20 mt-10 grid grid-cols-6 gap-6 max-sm:ml-0 max-sm:p-1">
+        <div class="scroll-ml-6 snap-start">
+          <img src="blech.png" alt="" />
+        </div>
+        <div class="scroll-ml-6 snap-start"><img src="ceria.png" alt="" /></div>
+        <div class="scroll-ml-6 snap-start"><img src="jfx.png" alt="" /></div>
+        <div class="scroll-ml-6 snap-start"><img src="pizza.png" alt="" /></div>
+        <div class="scroll-ml-6 snap-start"><img src="rata.png" alt="" /></div>
+        <div class="scroll-ml-6 snap-start"><img src="plant.png" alt="" /></div>
+      </div>
+    </div>
+    </div>
+
+    <!-- Services -->
+    <section class="pb-36 py-10 bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 ">
+      <div class="container mx-auto">
+      <div class="font-base ml-10 flex flex-wrap justify-between max-sm: ml-2">
+        <div class="max-sm:w-[350px] max-sm:ml-8">
+          <h2 class="font-bold text-[35px] max-sm:text-xl ">Services</h2>
+          <p class="text-[15px] max-sm:text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab sequi minima accusamus eligendi perferendis veritatis.</p>
+        </div>
+
+        <div>
+          <button class="button-primary mr-20 mt-10 max-sm: mt-4 max-sm: mr-0 max-sm:ml-8 max-sm:text-sm">Build Design</button>
+        </div>
+
+        <div class="grid grid-rows-2 grid-flow-col gap-4 mt-20 text-center mx-auto max-sm:gap-2 max-sm:grid-cols-1 max-sm:grid-rows-6 max-sm:mx-auto">
+          <div class="item px-8 py-2 rounded shadow-lg shadow-indigo-500/40 flex flex-wrap items-center justify-center bg-[#ffffff] max-sm:w-[350px]">
+            <div class="w-[150px] py-10">
+              <img src="shopify.png" alt="" />
+            </div>
+            <h1 class="font-extrabold text-lg">Shopify Theme Development</h1>
+            <p class="py-4 text-sm ">Start from 700 USD for project base or 35 USD per hour</p>
+          </div>
+
+          <div class="item px-8 py-2 rounded shadow-lg shadow-indigo-500/40 flex flex-wrap items-center justify-center bg-[#ffffff] max-sm:w-[350px]">
+            <div class="w-[150px] py-10">
+              <img src="word.png" alt="" />
+            </div>
+            <h1 class="font-extrabold text-lg">WordPress Theme Development</h1>
+            <p class="py-4 text-sm ">Start from 600 USD for project base or 35 USD per hour</p>
+          </div>
+          
+          <div class="item px-8 py-2 rounded shadow-lg shadow-indigo-500/40 flex flex-wrap items-center justify-center bg-[#ffffff] max-sm:w-[350px]">
+            <div class="w-[100px] h-[100px] py-10">
+              <img src="php.png" alt="" />
+            </div>
+            <h1 class="font-extrabold text-lg">Web Application Development</h1>
+            <p class="py-4 text-sm ">Start from 1000 USD for project base or 35 USD per hour</p>
+          </div>
+          
+          <div class="item px-8 py-2 rounded shadow-lg shadow-indigo-500/40 flex flex-wrap items-center justify-center bg-[#ffffff] max-sm:w-[350px]">
+            <div class="w-[150px] py-10 pl-3">
+              <img src="www.png" alt="" />
+            </div>
+            <h1 class="font-extrabold text-lg">Custom App/Plugins Development</h1>
+            <p class="py-4 text-sm ">Start from 300 USD for project base or 35 USD per hour</p>
+          </div>
+
+          <div class="item px-8 py-2 rounded shadow-lg shadow-indigo-500/40 flex flex-wrap items-center justify-center bg-[#ffffff] max-sm:w-[350px]">
+            <div class="w-[180px] pt-8 pl-2">
+              <img src="assit.png" alt="" />
+            </div>
+            <h1 class="font-extrabold text-lg">Assistans Services</h1>
+            <p class="py-4 text-sm ">Start from 33 USD for project base or 35 USD per hour</p>
+          </div>
+
+          <div class="item px-8 py-2 rounded shadow-lg shadow-indigo-500/40 flex flex-wrap items-center justify-center bg-[#ffffff] max-sm:w-[350px]">
+            <h1 class="font-bold text-slate-600 px-10">More Services :</h1>
+            <div class=" font-bold">
+            <p>Technical Assistans</p>
+            <p>Support Assistans</p>
+            <p>VIP Assistans</p>
+            <p>Social Media Admin</p> 
+            </div>
+          
+          </div>
+      </div>
+    </div>
+    </section>
+
+<!-- WHAT WE DO -->
+  <Section class="py-14 ">
+    <div class="container mx-auto">
+    <div class="text-center justify-center ">
+      <h1 class="font-bold text-[35px] max-sm:text-xl">What We Do</h1>
+      <p class=" text-slate-600 max-sm:text-sm">Lörem ipsum patev antifili astrokålonat. Vanat aheten. Ekofiering makrora, på trekavis.</p>
+      <p class=" text-slate-600 max-sm:text-sm">Makrona tregät plang. Bekässade kast, eftersom sore.</p>
+    </div>
+    <div class="grid grid-cols-4 gap-4 justify-between mx-auto items-center text-center mr-10 max-sm:gap-0 max-sm:grid-cols-1 max-sm:grid-rows-4  ">
+      
+      <div class="w-[250px] frame items-center justify-center px-3 py-2 ">
+        <div class="px-24">
+          <img src="Frame.png" alt="">
+        </div>
+        <h2 class="text-center font-bold text-m py-2">Design</h2>
+        <p class="text-sm ">Create Wireframe Display Designs And Initial UI Designs For Websites</p>
+      </div>
+      <div class="w-[250px] frame items-center justify-center px-3 py-2">
+        <div class="px-24">
+          <img src="Frame(1).png" alt="">
+        </div>
+        <h2 class="text-center font-bold text-m py-2">Front End</h2>
+        <p class="text-sm ">Create Wireframe Display Designs And Initial UI Designs For Websites</p>
+      </div>
+      <div class="w-[250px] frame items-center justify-center px-3 py-2">
+        <div class="px-24">
+          <img src="Frame(2).png" alt="">
+        </div>
+        <h2 class="text-center font-bold text-m py-2">Back End</h2>
+        <p class="text-sm ">Create Wireframe Display Designs And Initial UI Designs For Websites</p>
+      </div>
+      <div class="w-[250px] frame items-center justify-center px-3 py-2">
+        <div class="px-24">
+          <img src="Frame(3).png" alt="">
+        </div>
+        <h2 class="text-center font-bold text-m py-2">Check Test</h2>
+        <p class="text-sm ">Create Wireframe Display Designs And Initial UI Designs For Websites</p>
+      </div>
+    </div>
+  </div>
+  </Section>
+
+  <!-- out work -->
+  <section class="">
+    <div class="container mx-auto">
+    <div class="text-center justify-center pt-20 max-sm:pt-0">
+      <h1 class="font-bold text-[35px] max-sm:text-xl">Our Work</h1>
+      <p class="text-slate-600 max-sm:text-sm">Lörem ipsum patev antifili astrokålonat. Vanat aheten. Ekofiering makrora,</p>
+    </div>
+    <div class="grid grid-cols-2 gap-4 py-6 max-sm:grid-cols-1 max-sm:gap-2">
+      <div class="mx-10">
+        <div class="text-left">
+          <img src="Frame 101.png" alt="">
+        </div>
+        <h1 class="font-bold text-xl py-4">Retainer Orely Studio</h1>
+        <p class="text-slate-400">https://retainer.orely.co/</p>
+        <div class="flex flex-wrap text-center py-4">
+          <a href="#" class="border-solid border-2 border-indigo-300 w-28 h-10 mr-4 pt-1">WordPress</a>
+          <a href="#" class="border-solid border-2 border-indigo-300 w-28 h-10 mr-4 pt-1">Tailwind</a>
+        </div>
+      </div>
+      <div class="mx-10">
+        <div class="text-left">
+          <img src="Frame 102.png" alt="">
+        </div>
+        <h1 class="font-bold text-xl py-4">Beacukai Sangatta</h1>
+        <p class="text-slate-400">https://bcsangatta.beacukai.go.id/</p>
+        <div class="flex flex-wrap text-center py-4">
+          <a href="#" class="border-solid border-2 border-indigo-300 w-28 h-10 mr-4 pt-1">WordPress</a>
+          <a href="#" class="border-solid border-2 border-indigo-300 w-28 h-10 mr-4 pt-1">Tailwind</a>
+          <a href="#" class="border-solid border-2 border-indigo-300 w-28 h-10 mr-4 pt-1 max-sm:mt-2">Design</a>
+        </div>
+      </div>
+      <div class="mx-10">
+        <div class="text-left">
+          <img src="Frame 101(1).png" alt="">
+        </div>
+        <h1 class="font-bold text-xl py-4">Federasi Ice Skating Indonesia</h1>
+        <p class="text-slate-400">https://fisid.org/</p>
+        <div class="flex flex-wrap text-center py-4">
+          <a href="#" class="border-solid border-2 border-indigo-300 w-28 h-10 mr-4 pt-1">WordPress</a>
+          <a href="#" class="border-solid border-2 border-indigo-300 w-28 h-10 mr-4 pt-1">Tailwind</a>
+          <a href="#" class="border-solid border-2 border-indigo-300 w-28 h-10 mr-4 pt-1 max-sm:mt-2">Design</a>
+        </div>
+      </div>
+      <div class="mx-10">
+        <div class="text-left">
+          <img src="Frame 101.png" alt="">
+        </div>
+        <h1 class="font-bold text-xl py-4">Retainer Orely Studio</h1>
+        <p class="text-slate-400">https://retainer.orely.co/</p>
+        <div class="flex flex-wrap text-center py-4">
+          <a href="#" class="border-solid border-2 border-indigo-300 w-28 h-10 mr-4 pt-1">WordPress</a>
+          <a href="#" class="border-solid border-2 border-indigo-300 w-28 h-10 mr-4 pt-1">Tailwind</a>
+        </div>
+      </div>
+    </div>
+    <div class="mb-5 action flex mx-auto justify-center items-center gap-5">
+      <a href="#" class="button-primary">Our Work</a>
+      </div>
+    </div>
+  </section>
+
+<!-- kata kata -->
+<section class="my-32 bg-[#F6F9FC] max-sm:my-20">
+  <div class="container mx-auto">
+  <div class="text-center justify-center py-20 ">
+    <h1 class="font-bold text-[35px] max-sm:text-2xl"><span class="gradient"> What people say about</span> <br>
+      Mangcoding Team?</h1>
+      <p class="mx-auto w-[700px] text-[30px] py-14 max-sm:text-sm max-sm:w-[300px] max-sm:py-8" >“ It was a great experience to work with Mangcoding, we love the details result, and professionalism.
+        “</p>
+        <div class="mb-5 action flex mx-auto justify-center items-center gap-5 max-sm:mb-2">
+          <img src="image 16.png" alt="">
+        </div>
+        <h2 class="font-bold text-lg max-sm:text-sm">Riko Sapto Dimo </h2>
+        <p class="text-slate-600 max-sm:text-sm">Managing Director Orely.co</p>
+        <div class="radio-1 pt-10">
+          <input type="radio" name="radio-1">
+          <input type="radio" name="radio-1">
+          <input type="radio" name="radio-1">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- our blog -->
+
+  <section class="pb-20 ">
+    <div class="container mx-auto">
+    <div class="text-center justify-center">
+      <h1 class="font-bold text-[35px] max-sm:text-2xl">Our Blog</h1>
+    </div>
+    <div class="grid grid-cols-3 gap-1 py-10 mx-20 max-sm:grid-cols-1 max-sm:gap-2">
+      <div class="mx-1">
+        <div class="">
+          <img src="image 19.png" alt="">
+        </div>
+        <p class="font-bold text-[20px] max-sm:text-xl">8 Alasan Pentingnya Melakukan Pencadangan Situs Web</p>
+      </div>
+      <div class="">
+        <div class="">
+          <img src="image 20.png" alt="">
+        </div>
+        <p class="font-bold text-[20px] max-sm:text-xl">8 Alasan Pentingnya Melakukan Pencadangan Situs Web</p>
+      </div>
+      <div class="">
+        <div class="">
+          <img src="image 21.png" alt="">
+        </div>
+        <p class="font-bold text-[20px] max-sm:text-xl">8 Alasan Pentingnya Melakukan Pencadangan Situs Web</p>
+      </div>
+    </div>
+    <div class="mb-5 action flex mx-auto justify-center items-center gap-5">
+      <a href="#" class="button-primary">Our Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- sebelum footer -->
+  <section class="py-10 bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 ">
+    <div class="container mx-auto">
+    <div class="font-base flex flex-wrap item-center justify-between max-sm:ml-4">
+      <div class="">
+        <h2 class="font-bold text-[35px] max-sm:text-xl max-sm:py-1">Let's build a website with mangcoding</h2>
+        <p class="w-[550px] text-[15px] max-sm:text-sm">Mangcoding team will help you in branding your product</p>
+      </div>
+
+      <div class="pt-10 max-sm:pt-2">
+        <button class="button-primary mr-20 max-sm:text-sm">Build Website Now</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="my-20 ">
+    <div class="flex flex-wrap ">
+      <div class="mx-10 w-[300px] lg:flex-row">
+        <div class="flex flex-wrap py-10">
+          <img src="Group 2.png" alt="">
+        </div>
+        <p class="text-slate-400">Mangcoding Team Will Help You In Branding Your Product  asdMangcoding Team Will Help You In Branding Your Product asdMangcoding Team Will Help.</p>
+        <div class="flex flex-wrap py-10" >
+          <img src="1 (1).png" alt="" class="mr-4">
+          <img src="1 (2).png" alt="" class="mr-4">
+          <img src="1 (3).png" alt="" class="mr-4">
+          <img src="1 (4).png" alt="" class="mr-4">
+        </div>
+      </div>
+      <div class="mt-10 max-sm:ml-10 max-sm:mt-2">
+        <h2 class="font-bold text-lg">Mangcoding</h2>
+        <ul class="py-6 text-slate-400 max-sm:py-1">
+          <li class="pb-6"><a href="#">Home</a></li>
+          <li class="pb-6"><a href="#">About</a></li>
+          <li class="pb-6"><a href="#">Services</a></li>
+          <li class="pb-6"><a href="#">Blog</a></li>
+          <li class="pb-6"><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="mt-10 ml-12 max-sm:mt-2 max-sm:ml-10">
+        <h2 class="font-bold text-lg">Services</h2>
+        <ul class="py-6 text-slate-400 max-sm:py-1">
+          <li class="pb-6"><a href="#">Custom WordPress Theme Development </a></li>
+          <li class="pb-6"><a href="#">Custom Plugin WordPress </a></li>
+          <li class="pb-6"><a href="#">Custom Shopify Theme Development </a></li>
+          <li class="pb-6"><a href="#">Custom App for Shopify</a></li>
+          <li class="pb-6"><a href="#">Web Application</a></li>
+        </ul>
+      </div>
+      <div class="mt-10 ml-12 max-sm:mt-2 ">
+        <h2 class="font-bold text-lg">Trusted partner</h2>
+        <div class="py-4 max-sm:py-1 max-sm:flex max-sm:flex-wrap ">
+          <img src="orely.png" alt="" class="pb-4 max-sm:px-2 max-sm:w-[100px]">
+          <img src="kiwa.png" alt="" class=" max-sm:w-[60px]">
+        </div>
+      </div>
+      <div class="mt-10 ml-12 max-sm:mt-2">
+        <h2 class="font-bold text-lg">Services</h2>
+        <div class="w-[300px] py-4 flex flex-wrap mx-auto">
+          <div class="flex gap-4 items-center mb-4">
+            <img class="w-[25px]" src="mail.png" alt="">
+            <p class="text-neutral-600">hello@mangcoding.com</p>
+        </div>
+
+        <div class="flex gap-4 items-center mb-4">
+            <img class="w-[20px]" src="tlp.png" alt="">
+            <p class="w-40 text-neutral-600">0266-6532078 WA:0857-5940-2332</p>
+        </div>
+
+        <div class="flex gap-4 items-center">
+            <img class="w-[20px]" src="gps.png" alt="">
+            <p class="w-60 text-neutral-600">PT Anugrah Kreasi Digital. karang tengah, Cibadak - Sukabumi
+            </p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+// popup search dan button get started
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("myBtn");
+    var btnSearch = document.getElementById("myBtn-search");
+    var span = document.getElementsByClassName("close")[0];
+    
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    btnSearch.onclick = function() {
+      modal.style.display = "block";
+    }
+    
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    const buttonMobile = document.querySelector('.mobile-btn');
+    const navigation = document.querySelector('nav');
+
+    buttonMobile.addEventListener('click', function (event) {
+      this.classList.toggle('active');
+      navigation.classList.toggle('active');
+    });
+
+    document.querySelectorAll('li.has-child').forEach(function (anchor) {
+      anchor.querySelector('.caret').addEventListener('click', (event) => {
+        anchor.classList.toggle('active');
+      });
+    });
+    </script>
+  </body>
+</html>
