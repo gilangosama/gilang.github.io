@@ -19,7 +19,7 @@
           background: linear-gradient(180deg, #ffffff 0%, #eaf4ff 46.08%, #ffffff 100%);
         }
         nav a {
-          @apply hover:underline hover:text-primary font-nav;
+          @apply hover:underline font-nav text-xl ;
         }
         .button-primary {
           @apply bg-primary text-white px-5 py-2 rounded-full;
@@ -93,11 +93,12 @@
   <body>
     <!-- Navbar -->
     <header>
-      <div id="navigation" class="container flex gap-10 justify-between mx-auto items-center xl:px-0 ">
+     <section class="container px-5 xl:px-0 mx-auto">
+      <div id="navigation" class="flex justify-between gap-10 items-center py-5 ">
         <div class="left-side flex gap-10 items-center">
           <img src="logo.svg" alt="logo" />
-          <nav class="fixed w-full h-full top-0 p-10 lg:relative bg-primary lg:bg-transparent">
-            <ul class="flex items-center gap-5 lg:flex-row gap-y-5 gap-x-5 items-center">
+          <nav class="fixed w-full h-full top-0 p-10 lg:p-0 lg:relative bg-primary lg:bg-transparent">
+            <ul class="flex flex-col lg:flex-row gap-y-5 gap-x-5 items-center">
               <li class="active"><a href="#">Home</a></li>
               <li class="has-child"><a href="#">About</a>
                 <span class="caret"></span>
@@ -114,13 +115,13 @@
           </nav>
         </div>
 
-        <div class="flex gap-10 max-lg:hidden">
+        <div class="pr-12 lg:pr-0 flex items-center gap-10 max-lg:hidden">
           <button>
             <img src="search.svg" alt="search" id="myBtn-search"/>
           </button>
           <button class="btn button-primary " id="myBtn">Get Started</button>
         </div>
-        <button class="mobile-btn right-10 top-7 lg:static lg:hidden">
+        <button class="mobile-btn right-6 top-7 lg:static lg:hidden">
           <svg class="bar" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5 17H19M5 12H19M5 7H19" stroke="black" stroke-width="2.01562" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
@@ -139,6 +140,7 @@
           </div>
         </div>
       </div>
+    </section>
 
       <section class="hero md:max-w-[700px] mx-auto relative">
         <h1 class="font-base text-heading-1 font-bold text-center mt-10 leading-tight max-sm:text-2xl">It's Fun To Build a Website With <span class="gradient">The Mangcoding Team</span></h1>
